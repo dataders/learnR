@@ -1,0 +1,78 @@
+---
+title: "Learn R"
+author: "Anders Swanson"
+date: November 1, 2018
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Introduction
+
+## Quick Joke
+
+What's pirate's favorite programming language?
+
+## Agendas
+
+## Why is he here?
+
+### motivation
+
+1. Learning R seriously leveled me up
+2. Opportunity to enable you
+3. 
+
+### objectives
+
+## Why are you here?
+
+### Exam PA 
+
+## Exam PA - Predictive Analytics
+
+# The R universe
+
+## R History
+
+- S
+    - 1976: invented by John Chambers (Bell Labs)
+    - 1998: awarded ACM Computing Machinery award
+- S-PLUS
+    - 1988 Douglas Martin (UW Statistics)
+    - commerical implentation of S
+    - most recently owned by TIBCO (on Westlake)
+- R (a.k.a. base R)
+    - 1995: initial version
+    - created by Ross Ihaka & Robert Gentleman (University of Auckland) 
+    - named after their first names and a play on "S"
+- RStudio
+    - 2011: JJ Allaire
+    
+    
+## Why R 
+- open-source
+- large community
+    - academics
+    - over 10,000 packages on CRAN
+- dataframe object
+- "vectorized"
+- built in libraries for:
+    - stats,
+    - graphics, and
+    - linear algebra.
+
+
+# The Tidyverse
+
+# Core Tenants Data Science
+
+- Exploratory Data Analysis
+- Reproducible Research
+- Big Data
+- Machine Learning
+
+# Machine Learning
