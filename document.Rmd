@@ -3,18 +3,16 @@ title: "Learn R"
 author: "Anders Swanson"
 date: November 1, 2018
 output:
-    ioslides_presentation:
-        widescreen: true
+    html_document:
+        toc: true
+        toc_float: true
 ---
-
-
-
 
 # Introduction
 
 ## Setup
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, results='hide', warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -22,37 +20,6 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 ```
 
-## What does this code do? {.smaller}
-
-The famous iris dataset
-```{r}
-iris <- iris %>%
-    as_tibble()
-
-iris %>%
-    sample_n(3)
-```
-
-
-```{r, echo=TRUE, results='hide'}
-iris2 <- iris %>%
-    filter(Species == "setosa") %>%
-    mutate(Petal.Area = Petal.Width * Petal.Length) %>%
-    select(Species, Petal.Area) %>%
-    arrange(Petal.Area)
-iris2
-```
-
-## Answer
-
-```{r, echo=TRUE}
-iris2 <- iris %>%
-    filter(Species == "setosa") %>%
-    mutate(Petal.Area = Petal.Width * Petal.Length) %>%
-    select(Species, Petal.Area) %>%
-    arrange(Petal.Area)
-iris2
-```
 
 ## Quick Joke
 
@@ -170,13 +137,3 @@ By the end of today's session, participants will be able to:
 - R is nothing without the tidyverse
 - emphasis on legibility (at a VERY small performance loss)
 - very reproducible
-
-
-## Today's Objectives
-
-By the end of today's session, participants will be able to:
-
-1. Comfortably start using R, RStudio, and the tidyverse.
-2. Be able to explain the value of the above.
-3. Know where to go to start learning
-4. Have some hands-on experience using R and the tidyverse.

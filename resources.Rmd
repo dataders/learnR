@@ -1,0 +1,73 @@
+---
+title: "Learn R: Resources"
+author: "Anders Swanson"
+date: November 1, 2018
+output:
+    html_document:
+        toc: true
+        toc_float: true
+---
+
+
+```{r setup, include=FALSE, results='hide', warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+chooseCRANmirror(graphics=FALSE, ind=1)
+```
+
+## Resources
+
+### Do your own project!
+
+I can emphasize this enough. I know you have an exam to pass, but this is the best way to get familiar with the language. Find a dataset and work with it!
+
+### Documentation Lookup
+
+Lookup function doumentation with `?`.
+
+Don't know what `readr`'s  `read_csv()` function does? Look it up by running `?read_csv`!
+
+### R for Data Science
+
+Hadley Wickham's book, available for free!
+[https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+
+### DataCamp
+
+[https://www.datacamp.com/](https://www.datacamp.com/)
+
+Lots of great classes here, I like going here when I have a new project to learn:
+- [Tidyverse Skill Track](https://www.datacamp.com/tracks/tidyverse-fundamentals)
+- [Quantitative Risk Management in R](https://www.datacamp.com/courses/quantitative-risk-management-in-r)
+
+Sign up for [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) to get 3 months of Datacamp for free!
+
+### swirlR
+
+Its like datacamp but inside of R Studio
+
+```{r, eval = FALSE}
+
+install.packages("swirl")
+
+library(swirl)
+
+swirl()
+
+swirl::install_course("R Programming") # general into to R
+swirl::install_course("Exploratory Data Analysis") # using ggplot2
+swirl::install_course("Getting and Cleaning Data") #  dplyr, tidyr, lubridate
+```
+
+### RStudio Cheatsheets
+
+I highly recommend that you print these out and put them in a binder. They'll be immensely helpful
+[https://www.rstudio.com/resources/cheatsheets/](https://www.rstudio.com/resources/cheatsheets/)
+
+
+### UC Business Analytics R Programming Guide
+
+Bradley Boehmke at University of Cincinnati has written a very comprehensive into to R.
+
+In particular his [predictive analytics guide](http://uc-r.github.io/predictive) is great for you guys, I recommend using:
+- regression trees & bagging
+- random forest
