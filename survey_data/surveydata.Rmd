@@ -1,0 +1,42 @@
+```{r}
+# install.packages("devtools")
+# devtools::install_github("tidyverse/googlesheets4")
+
+library(googlesheets4)
+library(tidyverse)
+```
+
+```{r}
+df_raw <- read_sheet("1unsVqdPH7FdcGkK4DYCWBxQ7t-Xbf3m3IJSSB-SvFu4")
+```
+
+```{r}
+df_grid <- df_raw %>%
+    select(1, 5:33) %>%
+    gather(key = "question", value = "answer", 2:30) %>%
+    mutate(
+        answer = answer - 1,
+        question = question %>%
+               str_remove("How familiar are you with the following ") %>%
+               str_remove(" \\(1 = not at all, 5 = very\\)") %>%
+               str_remove(", please rate how familiar\\/comfortable you are with the material") %>%
+               str_remove("For each ") 
+    ) %>%
+    extract(question, into = c("topic", "item"), regex = "(.*) \\[(.*)\\]")
+```
+
+```{r}
+sum <- df_grid %>%
+    drop_na(answer) %>%
+    ggplot(aes(x = item, y = answer)) +
+    geom_bar(stat = "summary", fun.y = "mean") +
+    coord_flip() +
+    facet_wrap(~topic, scales = "free_y")
+    
+sum
+
+ggsave("../charts/topic-familiarity.jpg", plot = sum,
+       width = 16, height = 9)
+```
+
+
