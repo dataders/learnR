@@ -1,0 +1,51 @@
+---
+output:
+    word_document:
+        reference_docx: docs/exam-pa-sample-project-template.docx
+---
+
+![](charts/logo.png)
+
+# Predictive Analytics Exam
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Sample Project Report – Student Success
+
+To: Anders Swanson
+
+From: Me
+
+Date: Today
+
+Title: Drivers of Passing Course Grades
+
+
+# Executive Summary
+
+
+
+
+# Data Exploration, Preparation, and Cleaning
+
+
+
+# Feature Selection
+
+
+
+# Model Selection and Validation
+
+
+
+# Findings 
+
+
+
+
+# Appendices
+
+
