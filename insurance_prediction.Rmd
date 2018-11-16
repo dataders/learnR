@@ -15,12 +15,13 @@ library(GGally)
 library(caret)
 library(broom)
 library(cluster)
+library(glmnet)
 ```
 
 # Read Data
 
 ```{r}
-health0_raw <- read_csv("data/health-insurance-cost-prediction.zip",
+health0_raw <- read_csv("data/insurance.csv",
                         col_types = cols())
 ```
 
@@ -59,11 +60,30 @@ plot
 ### Pairs Plot
 
 ```{r}
+health1_newcols %>%
+    select_if(is.numeric) %>%
+    plot()
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r pairs_plot, message = FALSE, warning=FALSE}
 plot_cor <- health1_newcols %>%
     # select()
     GGally::ggpairs(columns = c(1, 3, 4, 6, 7, 8), aes(color = sex, fill = sex))
 
-ggsave("charts/pair_plot.png", plot = plot_cor, width = 16, height = 9)
+ggsave("pair_plot.png", plot = plot_cor, width = 16, height = 9)
 ```
 
 ![pair plot](charts/pair_plot.png)
@@ -91,17 +111,21 @@ health2_test <- health1_newcols[-trainIndex, ]
 ### Standard Linear Regression
 
 ```{r}
-model_lm <- lm(charges ~ age + bmi + age:bmi, data = health2_train)
+model_lm <- lm(formula = charges ~ age:age + bmi + bmi, data = health2_train)
+model_lm2 <- lm(formula = charges ~ age:bmi, data = health2_train)
 ```
 
 #### Outputs
 
 ```{r}
 model_lm
+model_lm2
 ```
 ```{r}
-model_lm %>% broom::glance()
-model_lm %>% broom::tidy()
+model_lm %>% glance()
+model_lm_output <- model_lm %>% tidy()
+
+summary(model_lm)
 ```
 
 #### Measure Error
@@ -138,7 +162,7 @@ f_train <- caret::trainControl(## 10-fold CV
 ```
 
 ```{r}
-model_lm2 <- model_lm2 <- caret::train(charges ~ age + bmi + age:bmi,
+model_lm2 <- caret::train(charges ~ age + bmi + age:bmi,
                                 trControl = f_train,
                                 data = health2_train,
                                 method = "lm")
@@ -148,7 +172,7 @@ model_lm2 <- model_lm2 <- caret::train(charges ~ age + bmi + age:bmi,
 
 
 ```{r}
-model_lm2 <- model_lm2 <- caret::train(charges ~ age + bmi + age:bmi,
+model_lm2 <- caret::train(charges ~ age + bmi + age:bmi,
                                 trControl = f_train,
                                 data = health2_train,
                                 method = "glmnet"
@@ -168,7 +192,16 @@ health3_numeric <- health2_train %>%
 model_kmeans <- kmeans(health3_numeric, 4)
 
 model_kmeans %>% broom::tidy()
+model_kmeans %>% broom::glance()
 ```
+
+
+```{r}
+1:20 %>%
+    map(~kmeans(health3_numeric, .)) %>%
+    map_df(glance)
+```
+
 
 ```{r}
 health4_wCluster <- model_kmeans %>%
