@@ -1,10 +1,11 @@
 ---
 title: "Learn R"
 author: "Anders Swanson"
-date: November 1, 2018
+date: "November 1, 2018"
 output:
-    ioslides_presentation:
-        widescreen: true
+  beamer_presentation: default
+  ioslides_presentation:
+    widescreen: yes
 ---
 
 

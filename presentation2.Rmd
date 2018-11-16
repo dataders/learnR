@@ -1,0 +1,57 @@
+---
+title: "Learn R II: The Tidyverse Strikes Back"
+author: "Anders Swanson"
+date: "November 1, 2018"
+output:
+  ioslides_presentation:
+    widescreen: yes
+  beamer_presentation: default
+---
+
+
+# Warm Up
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## "Bell Ringer"
+
+How many of these distinctions can you make re: machine learning?
+
+0. Signal vs. Noise
+1. AI vs. ML
+2. Model vs. Prediction
+3. Type I vs. Type II Error
+4. L1 vs. L2 normalization
+4. cross validation vs validation
+4. Binning vs. Bagging vs. Clustering
+5. Feature vs. Independent Variable
+6. Feature Engineering vs Feature Selection
+7. Regression vs. Classification
+8. Supervised vs. Unsupervised Learning
+
+## Content
+
+Topics
+
+1. ML 101 Vocab
+2. Common ML algorithms with the tidyverse
+    1. Generalized Linear Models (Module 6)
+    2. Decision Trees (Module 7)
+        1. CART
+        2. RF, xgboost)
+    3. Clustering Models (Module 8)
+        1. kmeans
+        2. hierarchical
+        3. PCA
+3. Review new materials
+4. Overview of code I've written.
+4. Workshop time!
+
+
+
+# ML 101
+
+##
